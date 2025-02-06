@@ -39,4 +39,4 @@ override.tf.json
 .terraformrc
 terraform.rc
 .terrform
-.vscode/
+.vscode/*
