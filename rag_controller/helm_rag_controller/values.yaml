@@ -1,0 +1,42 @@
+namespace: rag-controller
+
+ingress: 
+  host: 34.124.156.157.sslip.io
+
+deployment:
+  name: rag-controller
+  replicaCount: 2
+  labels:
+    appName: rag-controller
+  container:
+    name: rag-controller
+    portNumber: 8005
+    args: []
+  image:
+    name: duonghust1919/rag-controller
+    version: 1.1.3
+    imagePullPolicy: Always
+  resources:
+    requests:
+      cpu: 200m
+      memory: 512Mi
+    limits:
+      cpu: 800m
+      memory: 2Gi
+
+service:
+  name: rag-svc
+  type: ClusterIP
+  httpPort:
+    enable: true
+    port: 82
+    targetPort: 8005
+
+env:
+  QDRANT_URL: http://qdrant.qdrant.svc.cluster.local:6333
+  VECTORIZE_URL: http://emb-svc.emb.svc.cluster.local:81/embedding
+  LLM_API_URL: https://3d0d-202-191-58-161.ngrok-free.app/generate
+  MAX_NEW_TOKENS: 100
+  TEMPERATURE: 0.5
+  # JAEGER_HOST: https://jaeger-tracing-jaeger-all-in-one.jaeger-tracing.svc.cluster.local
+  # JAEGER_PORT: 6831
