@@ -1,0 +1,30 @@
+namespace: emb
+
+deployment:
+  name: text-embedding
+  replicaCount: 2
+  labels:
+    appName: text-embedding
+  container:
+    name: text-embedding
+    portNumber: 5000
+    args: []
+  image:
+    name: duonghust1919/vietnamese_text_embedding
+    version: 1.1.0
+    imagePullPolicy: Always
+  resources:
+    requests:
+      cpu: 200m
+      memory: 4Gi
+    limits:
+      cpu: 2
+      memory: 10Gi
+
+service:
+  name: emb-svc
+  type: ClusterIP 
+  httpPort:
+    enable: true
+    port: 81
+    targetPort: 5000

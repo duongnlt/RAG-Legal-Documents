@@ -1,0 +1,5 @@
+fastapi==0.115.8
+llama_index==0.12.15
+qdrant_client==1.13.2
+Requests==2.32.3
+uvicorn==0.34.0

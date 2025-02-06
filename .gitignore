@@ -1,0 +1,9 @@
+ansible/secrets
+__pycache__
+data
+.vscode/*
+**/*.ipynb
+*.ipynb
+**/*.tfstate
+**/*.tfstate.backup
+**/.terraform.lock.hcl
