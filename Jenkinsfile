@@ -20,5 +20,25 @@ pipeline {
                 }
             }
         }
+
+        stage('Deploy') {
+            agent {
+                kubernetes {
+                    containerTemplate {
+                        name 'helm'
+                        image 'duonghust1919/jenkins-k8s:latest'
+                        alwaysPullImage true
+                    }
+                }
+            }
+            
+            steps {
+                script {
+                    container('helm') {
+                        sh("helm upgrade --install rag-controller ./rag_controller/helm_rag_controller --namespace rag-controller --set deployment.image.name=${registry} --set deployment.image.version=${imageTag}")
+                    }
+                }
+            }
+        }
     }
 }
