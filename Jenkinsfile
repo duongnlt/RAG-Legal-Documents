@@ -4,7 +4,7 @@ pipeline {
     environment {
         registry = 'duonghust1919/rag-controller'
         registryCredential = 'dockerhub'
-        imageTag = "$BUILD_NUMBER"
+        imageTag = "1.1.$BUILD_NUMBER"
     }
     
     stages {
