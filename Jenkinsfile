@@ -2,7 +2,7 @@ pipeline {
     agent any
 
     environment {
-        registry = 'duonghust1919/rag-controller',
+        registry = 'duonghust1919/rag-controller'
         registryCredential = 'dockerhub'
         imageTag = "$BUILD_NUMBER"
     }
