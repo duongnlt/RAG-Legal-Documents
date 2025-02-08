@@ -35,7 +35,7 @@ service:
 env:
   QDRANT_URL: http://qdrant.qdrant.svc.cluster.local:6333
   VECTORIZE_URL: http://emb-svc.emb.svc.cluster.local:81/embedding
-  LLM_API_URL: https://3d0d-202-191-58-161.ngrok-free.app/generate
+  LLM_API_URL: https://faa1-202-191-58-161.ngrok-free.app/generate
   MAX_NEW_TOKENS: 100
   TEMPERATURE: 0.5
   # JAEGER_HOST: https://jaeger-tracing-jaeger-all-in-one.jaeger-tracing.svc.cluster.local
